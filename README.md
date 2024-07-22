@@ -4,81 +4,35 @@
 > Tuliskan API Docs kamu di sini
 API Documentation
 
-The API provides endpoints to manage articles, categories, and user authentication.
+**Article Endpoints**
 
--ARTICLE ENDPOINT-
+* **Get All Articles**
+> Retrieves a list of all articles.
 
->Get All Articles
->Get a list of all articles.
+**URL:** `/article`
+**Method:** GET
+**Response:**
+  - Status Code: 200 (OK)
+  - Body: An array of JSON objects representing articles. Each object includes properties like `id`, `title`, `content`, `author`, `category` (if applicable), and `createdAt` (timestamp).
 
-URL: /article
-Method: GET
+**Example Response:**
 
->Get Article by ID
->Get a specific article by its ID.
-
-URL: /article/:id
-Method: GET
-
->Create New Article
->Create a new article.
-URL: /article
-Method: POST
-Request Body:
-{
-  "title": "New Article",
-  "content": "Lorem ipsum dolor sit amet.",
-  "author": "John Doe"
-}
-
-
->Update Article
->Update an existing article by its ID.
-
-URL: /article/:id
-Method: PUT
-Request Body:
-{
-  "title": "Updated Article Title"
-}
-
--CATEGORY ENDPOINT-
->Get All Categories
->Get a list of all categories.
-
-URL: /category
-Method: GET
-
->Create New Category
->Create a new category.
-
-URL: /category
-Method: POST
-Request Body:
-{
-  "name": "Sports"
-}
-
->Update Category
->Update an existing category by its ID.
-
-URL: /category/:id
-Method: PUT
-Request Body:
-{
-  "name": "Updated Category Name"
-}
-
-
--USER ENDPOINT-
->User Login
->Authenticate a user.
-
-URL: /user/login
-Method: POST
-Request Body:
-{
-  "username": "john_doe",
-  "password": "password123"
-}
-
+```json
+[
+    {
+        "id": 1,
+        "title": "Introduction to APIs",
+        "content": "This article provides an overview of...",
+        "author": "Jane Smith",
+        "category": "Tech",
+        "createdAt": "2024-07-23T00:00:00.000Z"
+    },
+    {
+        "id": 2,
+        "title": "Building a CRUD API",
+        "content": "Learn how to create...",
+        "author": "John Doe",
+        "category": "Development",
+        "createdAt": "2024-07-22T23:59:00.000Z"
+    }
+]

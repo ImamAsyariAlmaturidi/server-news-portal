@@ -2,3 +2,83 @@
 # P2-Challenge-1 (Server Side)
 
 > Tuliskan API Docs kamu di sini
+API Documentation
+
+The API provides endpoints to manage articles, categories, and user authentication.
+
+-ARTICLE ENDPOINT-
+
+>Get All Articles
+>Get a list of all articles.
+
+URL: /article
+Method: GET
+
+>Get Article by ID
+>Get a specific article by its ID.
+
+URL: /article/:id
+Method: GET
+
+>Create New Article
+>Create a new article.
+URL: /article
+Method: POST
+Request Body:
+{
+  "title": "New Article",
+  "content": "Lorem ipsum dolor sit amet.",
+  "author": "John Doe"
+}
+
+
+>Update Article
+>Update an existing article by its ID.
+
+URL: /article/:id
+Method: PUT
+Request Body:
+{
+  "title": "Updated Article Title"
+}
+
+-CATEGORY ENDPOINT-
+>Get All Categories
+>Get a list of all categories.
+
+URL: /category
+Method: GET
+
+>Create New Category
+>Create a new category.
+
+URL: /category
+Method: POST
+Request Body:
+{
+  "name": "Sports"
+}
+
+>Update Category
+>Update an existing category by its ID.
+
+URL: /category/:id
+Method: PUT
+Request Body:
+{
+  "name": "Updated Category Name"
+}
+
+
+-USER ENDPOINT-
+>User Login
+>Authenticate a user.
+
+URL: /user/login
+Method: POST
+Request Body:
+{
+  "username": "john_doe",
+  "password": "password123"
+}
+

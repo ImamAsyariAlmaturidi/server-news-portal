@@ -3,7 +3,7 @@ class Controller {
   static async getUser(req, res) {
     try {
       const users = await User.findAll({
-        attributes: ['username', 'email', 'phoneNumber', 'address']
+        attributes: ["username", "email", "phoneNumber", "address"],
       });
 
       res.status(200).json({
@@ -32,10 +32,10 @@ class Controller {
         message: `Success create user ${username}`,
       });
     } catch (error) {
-      if (
-        error.name === "SequelizeValidationError" ||
-        error.name === "SequelizeUniqueConstraintError"
-      ) {
+      if (error.name === "SequelizeUniqueConstraintError") {
+        res.status(400).json({ message: error.errors[0].message });
+      }
+      if (error.name === "SequelizeValidationError") {
         res.status(400).json({ message: error.errors[0].message });
       }
       res.status(500).json({ message: "internal server error" });
@@ -49,11 +49,11 @@ class Controller {
         where: {
           id,
         },
-        attributes: ['username', 'email', 'phoneNumber', 'address']
+        attributes: ["username", "email", "phoneNumber", "address"],
       });
 
       if (!user) {
-        throw { message: "ErrorNotFound" };
+        throw { message: "error not found" };
       }
 
       res.status(200).json({
@@ -61,13 +61,8 @@ class Controller {
         message: "OK",
         data: user,
       });
-
     } catch (error) {
-      if (error) {
-        res.status(404).json({ message: error.message });
-      } else {
-        res.status(500).json({ message: "internal server error" });
-      }
+      res.status(404).json({ message: error.message });
     }
   }
 

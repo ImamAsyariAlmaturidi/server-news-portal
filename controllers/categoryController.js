@@ -45,10 +45,11 @@ class Controller {
     const id = req.params.id;
     try {
       let status = 200;
+
       const category = await Category.findByPk(id);
 
       if (!category) {
-        res.status(404).json({ message: "Category not found" });
+        throw { message: "Category not found" };
       }
 
       await Category.destroy({
@@ -60,7 +61,13 @@ class Controller {
         .status(status)
         .json({ message: `${category.name} success to delete` });
     } catch (error) {
-      res.status(500).json({ message: "Internal Server Error" });
+      let status = 500;
+      let message = "Internal Server Error";
+      if (error.message === "Category not found") {
+        status = 404;
+        message = error.message;
+      }
+      res.status(status).json({ message });
     }
   }
 
@@ -68,29 +75,28 @@ class Controller {
     const id = req.params.id;
     const name = req.body.name;
     try {
-      const category = await Category.findByPk(id);
-
       let status = 200;
       let message = "OK";
 
-      await Category.update({
-        where: {
-            id
-        },
-        name
-      })
+      await Category.update({ name }, { where: { id } });
 
+      const category = await Category.findByPk(id);
       if (!category) {
-        status = 404;
-        message = "Category not found";
+        throw { message: "Category not found" };
       }
       res.status(status).json({
         statusCode: status,
         message,
-        data: category
-      })
+        data: category,
+      });
     } catch (error) {
-        res.status(500).json("Internal Server Error")
+      let status = 500;
+      let message = "Internal Server Erorr";
+      if (error.message === "Category not found") {
+        status = 404;
+        message = error.message;
+      }
+      res.status(status).json({ message });
     }
   }
 }

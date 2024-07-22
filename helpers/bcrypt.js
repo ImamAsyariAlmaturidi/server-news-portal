@@ -6,9 +6,9 @@ const hashsingPassword = (pass) => {
   return newPassword;
 };
 
-const comparePassword = (pass) => {
-  const result = bcrypt.compareSync(pass);
-  return result;
+const comparePassword = (pass, hashedPass) => {
+  const result = bcrypt.compareSync(pass, hashedPass);
+  return result
 };
 
 module.exports = {

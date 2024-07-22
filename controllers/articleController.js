@@ -26,7 +26,7 @@ class Controller {
       const article = await Article.findByPk(id);
 
       if (!article) {
-        res.status(404).json({ message: "Article not found" });
+        throw { message: "Article not found" };
       }
 
       res.status(status).json({
@@ -35,7 +35,13 @@ class Controller {
         data: article,
       });
     } catch (error) {
-      res.status(500).json({ message: "Internal server error" });
+      let status = 500;
+      let message = "Internal server error";
+      if (error.message === "Article not found") {
+        status = 404;
+        message = error.message;
+      }
+      res.status(status).json({ message });
     }
   }
 
@@ -59,7 +65,7 @@ class Controller {
       let status = 500;
       let message = "Internal Server Error";
       if (error.name === "SequelizeValidationError") {
-        status = 404;
+        status = 400;
         message = error.errors[0].message;
       }
       res.status(status).json({ message });
@@ -71,25 +77,26 @@ class Controller {
     const { title, content, imgUrl, categoryId, authorId } = req.body;
 
     try {
-      const article = await Article.findByPk(id);
       let status = 200;
       let message = "OK";
-
+      const article = Article.findByPk(id);
       if (!article) {
-        status = 404;
-        message = "Article not found";
+        throw { message: "Article not found" };
       }
-
-      await Article.update({
-        where: {
-          id,
+      await Article.update(
+        {
+          title,
+          content,
+          imgUrl,
+          categoryId,
+          authorId,
         },
-        title,
-        content,
-        imgUrl,
-        categoryId,
-        authorId,
-      });
+        {
+          where: {
+            id,
+          },
+        }
+      );
 
       res.status(status).json({
         statusCode: status,
@@ -100,8 +107,13 @@ class Controller {
       let status = 500;
       let message = "Internal Server Error";
       if (error.name === "SequelizeValidationError") {
-        status = 404;
+        status = 400;
         message = error.errors[0].message;
+      }
+
+      if (error.message === "Article not found") {
+        status = 404;
+        message = error.message;
       }
       res.status(status).json({ message });
     }

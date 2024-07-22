@@ -65,6 +65,47 @@ class Controller {
       res.status(status).json({ message });
     }
   }
+
+  static async putArticleById(req, res) {
+    const id = req.params.id;
+    const { title, content, imgUrl, categoryId, authorId } = req.body;
+
+    try {
+      const article = await Article.findByPk(id);
+      let status = 200;
+      let message = "OK";
+
+      if (!article) {
+        status = 404;
+        message = "Article not found";
+      }
+
+      await Article.update({
+        where: {
+          id,
+        },
+        title,
+        content,
+        imgUrl,
+        categoryId,
+        authorId,
+      });
+
+      res.status(status).json({
+        statusCode: status,
+        message,
+        data: article,
+      });
+    } catch (error) {
+      let status = 500;
+      let message = "Internal Server Error";
+      if (error.name === "SequelizeValidationError") {
+        status = 404;
+        message = error.errors[0].message;
+      }
+      res.status(status).json({ message });
+    }
+  }
 }
 
 module.exports = Controller;

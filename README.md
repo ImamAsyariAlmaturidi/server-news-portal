@@ -15,24 +15,28 @@ API Documentation
   - Status Code: 200 (OK)
   - Body: An array of JSON objects representing articles. Each object includes properties like `id`, `title`, `content`, `author`, `category` (if applicable), and `createdAt` (timestamp).
 
-**Example Response:**
+**Example Response:*
 
 ```json
-[
+{
+  "statusCode": 200,
+  "message": "OK",
+  "data": [
     {
-        "id": 1,
-        "title": "Introduction to APIs",
-        "content": "This article provides an overview of...",
-        "author": "Jane Smith",
-        "category": "Tech",
-        "createdAt": "2024-07-23T00:00:00.000Z"
-    },
-    {
-        "id": 2,
-        "title": "Building a CRUD API",
-        "content": "Learn how to create...",
-        "author": "John Doe",
-        "category": "Development",
-        "createdAt": "2024-07-22T23:59:00.000Z"
+      "id": 1,
+      "title": "Mbappe Real Madrid",
+      "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
+      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
+      "categoryId": 1,
+      "authorId": 1,
+      "createdAt": "2024-07-22T13:28:18.569Z",
+      "updatedAt": "2024-07-22T13:28:18.569Z",
+      "User": {
+        "username": "imam",
+        "email": "imam@gmail.com",
+        "phoneNumber": "081234567",
+        "address": "example street"
+      }
     }
-]
+  ]
+}

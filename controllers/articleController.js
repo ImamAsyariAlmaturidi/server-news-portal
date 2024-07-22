@@ -25,7 +25,9 @@ class Controller {
       let status = 200;
       const article = await Article.findByPk(id);
 
-      if(!article) throw { message: "article not found"}
+      if (!article) {
+        res.status(404).json({ message: "Article not found" });
+      }
 
       res.status(status).json({
         statusCode: status,
@@ -33,7 +35,7 @@ class Controller {
         data: article,
       });
     } catch (error) {
-      res.status(404).json({message: error.message});
+      res.status(500).json({ message: "Internal server error" });
     }
   }
 
@@ -54,11 +56,11 @@ class Controller {
         data: newArticle,
       });
     } catch (error) {
-        let status = 500
-        let message = "Internal Server Error"
+      let status = 500;
+      let message = "Internal Server Error";
       if (error.name === "SequelizeValidationError") {
-        status = 404
-        message = error.errors[0].message
+        status = 404;
+        message = error.errors[0].message;
       }
       res.status(status).json({ message });
     }

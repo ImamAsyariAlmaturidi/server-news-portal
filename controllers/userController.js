@@ -2,7 +2,9 @@ const { User } = require("../models/index");
 class Controller {
   static async getUser(req, res) {
     try {
-      const users = await User.findAll();
+      const users = await User.findAll({
+        attributes: ['username', 'email', 'phoneNumber', 'address']
+      });
 
       res.status(200).json({
         statusCode: 200,
@@ -47,6 +49,7 @@ class Controller {
         where: {
           id,
         },
+        attributes: ['username', 'email', 'phoneNumber', 'address']
       });
 
       if (!user) {
@@ -58,7 +61,7 @@ class Controller {
         message: "OK",
         data: user,
       });
-      
+
     } catch (error) {
       if (error) {
         res.status(404).json({ message: error.message });

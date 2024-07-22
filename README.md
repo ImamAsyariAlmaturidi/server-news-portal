@@ -13,7 +13,7 @@ API Documentation
 **Method:** GET
 **Response:**
   - Status Code: 200 (OK)
-  - Body: An array of JSON objects representing articles. Each object includes properties like `id`, `title`, `content`, `author`, `category` (if applicable), and `createdAt` (timestamp).
+  - Body: An array of JSON objects representing articles. Each object includes properties like `id`, `title`, `content`, `imgUrl` `authorId`, `categoryId` (include table user): `user`
 
 **Example Response:*
 

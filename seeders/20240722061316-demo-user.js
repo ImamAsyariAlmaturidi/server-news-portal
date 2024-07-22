@@ -1,5 +1,6 @@
 "use strict";
 const users = require("../datas/user.json");
+const { hashsingPassword } = require('../helpers/bcrypt')
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -13,8 +14,10 @@ module.exports = {
      * }], {});
      */
     const user = users.map((el) => {
+
       el.createdAt = new Date();
       el.updatedAt = new Date();
+      el.password = hashsingPassword(el.password)
       return el;
     });
     await queryInterface.bulkInsert("Users", user, {});

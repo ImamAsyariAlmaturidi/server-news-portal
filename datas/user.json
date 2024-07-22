@@ -1,16 +1,16 @@
 [
     {
-      "username": "user",
-      "email": "user6@gmail.com",
-      "password": "user",
+      "username": "imam",
+      "email": "imam@gmail.com",
+      "password": "imam",
       "role": "User",
       "phoneNumber": "081234567",
       "address": "example street"
     },
     {
-      "username": "staff",
-      "email": "staf6@gmail.com",
-      "password": "password",
+      "username": "athif",
+      "email": "athif@gmail.com",
+      "password": "athif",
       "role": "Staff",
       "phoneNumber": "087654321",
       "address": "example street 2"

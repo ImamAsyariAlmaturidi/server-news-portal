@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.Article, { foreignKey: "authorId" })
     }
   }
   User.init(
@@ -43,6 +44,6 @@ module.exports = (sequelize, DataTypes) => {
   User.beforeCreate(function (instance, options) {
     instance.password = hashsingPassword(instance.password)
   });
-  
+
   return User;
 };

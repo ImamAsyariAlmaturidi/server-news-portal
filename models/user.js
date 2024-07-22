@@ -1,7 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { hashsingPassword } = require('../helpers/bcrypt')
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -13,16 +12,37 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  User.init({
-    username: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    role: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    address: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'User',
+  User.init(
+    {
+      username: DataTypes.STRING,
+      email: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        unique: true,
+        validate: {
+          isEmail: true,
+        },
+      },
+      password: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        validate: {
+          len: 5,
+        },
+      },
+      role: DataTypes.STRING,
+      phoneNumber: DataTypes.STRING,
+      address: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "User",
+    }
+  );
+
+  User.beforeCreate(function (instance, options) {
+    instance.password = hashsingPassword(instance.password)
   });
+  
   return User;
 };

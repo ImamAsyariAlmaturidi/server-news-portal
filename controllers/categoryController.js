@@ -3,10 +3,11 @@ const { Category } = require("../models/index");
 class Controller {
   static async getCategory(req, res) {
     try {
+      let status = 200;
       const category = await Category.findAll();
 
-      res.status(200).json({
-        statusCode: 200,
+      res.status(status).json({
+        statusCode: status,
         message: "OK",
         data: category,
       });
@@ -18,20 +19,25 @@ class Controller {
   static async createCategory(req, res) {
     const name = req.body.name;
     try {
-
+      let status = 201;
       await Category.create({
         name,
       });
 
-      res.status(201).json({
-        statusCode: 201,
+      res.status(status).json({
+        statusCode: status,
         message: "create category successfully",
       });
     } catch (error) {
-      if (error.name === "SequelizeValidationError") {
-        res.status(400).json({ message: "category name is required" });
+        console.log(error)
+      let status = 500;
+      let message = "Internal Server Error";
+
+      if (error.name === "SequelizeUniqueConstraintError") {
+        status = 400
+        message = error.errors[0].message
       }
-      res.status(500).json({message: 'internal server error'})
+      res.status(status).json({ message });
     }
   }
 }

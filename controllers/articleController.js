@@ -2,14 +2,15 @@ const { Article, User } = require("../models/index");
 class Controller {
   static async getArticles(req, res) {
     try {
+      let status = 200;
       const articles = await Article.findAll({
         include: {
           model: User,
           attributes: ["username", "email", "phoneNumber", "address"],
         },
       });
-      res.status(200).json({
-        statusCode: 200,
+      res.status(status).json({
+        statusCode: status,
         message: "OK",
         data: articles,
       });
@@ -19,18 +20,20 @@ class Controller {
   }
 
   static async getArticleById(req, res) {
-    const id = req.params.id
-    console.log(id)
+    const id = req.params.id;
     try {
-        const article = await Article.findByPk(id)
-        res.status(200).json({
-            statusCode: 200,
-            message: "OK",
-            data: article
-        })
+      let status = 200;
+      const article = await Article.findByPk(id);
+
+      if(!article) throw { message: "article not found"}
+
+      res.status(status).json({
+        statusCode: status,
+        message: "OK",
+        data: article,
+      });
     } catch (error) {
-        console.log(error)
-      res.status(404).json({ message: "Not Found" });
+      res.status(404).json({message: error.message});
     }
   }
 
@@ -51,10 +54,13 @@ class Controller {
         data: newArticle,
       });
     } catch (error) {
+        let status = 500
+        let message = "Internal Server Error"
       if (error.name === "SequelizeValidationError") {
-        res.status(404).json({ message: error.message });
+        status = 404
+        message = error.errors[0].message
       }
-      res.status(500).json({ message: "internal server error" });
+      res.status(status).json({ message });
     }
   }
 }

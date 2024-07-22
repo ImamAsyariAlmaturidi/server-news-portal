@@ -19,15 +19,27 @@ module.exports = (sequelize, DataTypes) => {
   Article.init({
     title: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    validate: {
+      notNull: true,
+      notEmpty: true
+    }
     },
     content: {
       allowNull: false,
       type: DataTypes.TEXT, 
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
     },
     imgUrl : {
       allowNull: false, 
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
     },
     categoryId: DataTypes.INTEGER,
     authorId: DataTypes.INTEGER,

@@ -40,7 +40,7 @@ API Documentation
     }
   ]
 }
-
+```
 * **Get Articles By ID**
 > Retrieves a articles where id same.
 
@@ -76,7 +76,7 @@ API Documentation
     }
   ]
 }
-
+```
 * **Create Articles**
 > Retrieves a new article.
 
@@ -111,7 +111,7 @@ API Documentation
     }
   ]
 }
-
+```
 * **Get All Articles**
 > Retrieves a new articel after edit/put.
 
@@ -146,7 +146,7 @@ API Documentation
     }
   ]
 }
-
+```
 -------------------------------------------
 **Category Endpoints**
 
@@ -171,8 +171,7 @@ API Documentation
     }
   ]
 }
-
-
+```
 * **Create Category**
 > Retrieves a new article.
 
@@ -193,7 +192,7 @@ API Documentation
     }
   ]
 }
-
+```
 * **Create Articles**
 > Retrieves a new article.
 
@@ -210,7 +209,7 @@ API Documentation
   "statusCode": 200,
   "message": "sports success to delete",
 }
-
+```
 * **Update Category**
 > Retrieves a Category after edit/put.
 
@@ -231,6 +230,6 @@ API Documentation
    }
   ]
 }
-
+```
 
 

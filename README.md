@@ -162,6 +162,7 @@ but you can access article without login first
     }
   ]
 }
+```
 
 * **Create Articles**
 > Retrieves a new article.

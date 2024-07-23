@@ -29,7 +29,6 @@ class Controller {
       });
     } catch (err) {
       next(err)
-    //   console.log(err)
     }
   }
 

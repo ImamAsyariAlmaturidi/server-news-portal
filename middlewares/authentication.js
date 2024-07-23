@@ -11,7 +11,7 @@ const authentication = async (req, res, next) => {
       },
     });
     req.loginInfo = {
-      id: user.id,
+      userId: user.id,
       username: user.username,
       role: user.role,
     };

@@ -1,29 +1,43 @@
 const { Article, User } = require("../models/index");
 class Controller {
   static async getArticles(req, res, next) {
+    const { userId } = req.loginInfo
     try {
+
       let status = 200;
       const articles = await Article.findAll({
         include: {
           model: User,
           attributes: ["username", "email", "phoneNumber", "address"],
         },
+        where:{
+          authorId: userId
+        }
       });
       res.status(status).json({
         statusCode: status,
         data: articles,
       });
     } catch (err) {
-        console.log(err)
-      next(err)
+      next(err);
     }
   }
 
   static async getArticleById(req, res, next) {
     const id = req.params.id;
+    const { userId } = req.loginInfo
     try {
       let status = 200;
-      const article = await Article.findByPk(id);
+      const article = await Article.findOne({
+        where: {
+          id,
+          authorId: userId
+        },
+        include: {
+          model: User,
+          attributes: ["username", "email", "phoneNumber", "address"],
+        },
+      });
 
       if (!article) {
         throw { name: "NotFound" };
@@ -54,7 +68,7 @@ class Controller {
         data: newArticle,
       });
     } catch (err) {
-        next(err)
+      next(err);
     }
   }
 
@@ -88,7 +102,28 @@ class Controller {
         data: article,
       });
     } catch (err) {
-     next(err)
+      next(err);
+    }
+  }
+
+  static async deleteArticleById(req, res, next) {
+    const id = req.params.id;
+    try {
+      const article = await Article.findByPk(id);
+      if (!article) {
+        throw { name: "NotFound" };
+      }
+      await Article.destroy({
+        where: {
+          id,
+        },
+      });
+      res.status(200).json({
+        message: `${article.title} success to delete`,
+      });
+    } catch (err) {
+      console.log(err)
+      next(err);
     }
   }
 }

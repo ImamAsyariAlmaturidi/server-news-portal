@@ -3,12 +3,12 @@ const { signToken } = require("../helpers/jsonwebtoken");
 const { User } = require("../models/index");
 
 class Controller {
-  static async login(req, res) {
+  static async login(req, res, next) {
     const { email, password } = req.body;
     try {
 
       if (!password || !email) {
-        throw { message: "InvalidLogin" };
+        throw { name: "InvalidLogin" };
       }
 
       const user = await User.findOne({
@@ -16,13 +16,13 @@ class Controller {
       });
 
       if (!user) {
-        throw { message: "LoginError" };
+        throw { name: "LoginError" };
       }
       
       const passwordMatch = comparePassword(password, user.password);
 
       if (!passwordMatch) {
-        throw { message: "LoginError" };
+        throw { name: "LoginError" };
       }
 
       const payload = {
@@ -33,22 +33,8 @@ class Controller {
 
       const access_token = signToken(payload);
       res.status(200).json({ access_token });
-    } catch (error) {
-        console.log(error)
-      let message = "Internal server error";
-      let status = 500;
-
-      if (error.message === "InvalidLogin") {
-        message = "Please input email and password";
-        status = 401;
-      }
-
-      if (error.message === "LoginError") {
-        message = "Invalid email or password";
-        status = 401;
-      }
-
-      res.status(status).json({ message });
+    } catch (err) {
+      next(err)
     }
   }
 }

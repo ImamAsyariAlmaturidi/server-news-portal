@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const errorHandler = require('../middlewares/errorHandlers')
+const Controller = require("../controllers/publicController");
 
-const Controller = require("../controllers/authController");
-
-router.post("/login", Controller.login);
+router.get("/article", Controller.getPublicData);
+router.get("/article/:id", Controller.getPublicDataById);
 router.use(errorHandler)
 
 

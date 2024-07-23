@@ -1,6 +1,6 @@
 const { Article, User } = require("../models/index");
 class Controller {
-  static async getArticles(req, res) {
+  static async getArticles(req, res, next) {
     try {
       let status = 200;
       const articles = await Article.findAll({
@@ -11,37 +11,30 @@ class Controller {
       });
       res.status(status).json({
         statusCode: status,
-        message: "OK",
         data: articles,
       });
-    } catch (error) {
-      res.status(500).json({ message: "internal server error" });
+    } catch (err) {
+        console.log(err)
+      next(err)
     }
   }
 
-  static async getArticleById(req, res) {
+  static async getArticleById(req, res, next) {
     const id = req.params.id;
     try {
       let status = 200;
       const article = await Article.findByPk(id);
 
       if (!article) {
-        throw { message: "Article not found" };
+        throw { name: "NotFound" };
       }
 
       res.status(status).json({
         statusCode: status,
-        message: "OK",
         data: article,
       });
-    } catch (error) {
-      let status = 500;
-      let message = "Internal server error";
-      if (error.message === "Article not found") {
-        status = 404;
-        message = error.message;
-      }
-      res.status(status).json({ message });
+    } catch (err) {
+      next(err);
     }
   }
 
@@ -58,17 +51,10 @@ class Controller {
 
       res.status(201).json({
         statusCode: 201,
-        message: "success create article",
         data: newArticle,
       });
-    } catch (error) {
-      let status = 500;
-      let message = "Internal Server Error";
-      if (error.name === "SequelizeValidationError") {
-        status = 400;
-        message = error.errors[0].message;
-      }
-      res.status(status).json({ message });
+    } catch (err) {
+        next(err)
     }
   }
 
@@ -78,10 +64,9 @@ class Controller {
 
     try {
       let status = 200;
-      let message = "OK";
       const article = Article.findByPk(id);
       if (!article) {
-        throw { message: "Article not found" };
+        throw { name: "NotFound" };
       }
       await Article.update(
         {
@@ -100,22 +85,10 @@ class Controller {
 
       res.status(status).json({
         statusCode: status,
-        message,
         data: article,
       });
-    } catch (error) {
-      let status = 500;
-      let message = "Internal Server Error";
-      if (error.name === "SequelizeValidationError") {
-        status = 400;
-        message = error.errors[0].message;
-      }
-
-      if (error.message === "Article not found") {
-        status = 404;
-        message = error.message;
-      }
-      res.status(status).json({ message });
+    } catch (err) {
+     next(err)
     }
   }
 }

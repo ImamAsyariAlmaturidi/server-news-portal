@@ -13,6 +13,9 @@ for mostly endpoint need login first
 
 -------------------------------------------
 but you can access article without login first
+**Endpoint Available without Login First:**
+GET /public/articles
+GET /public/articles/:id
 
 -------------------------------------------
 **Public Endpoints**

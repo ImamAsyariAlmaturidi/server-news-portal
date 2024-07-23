@@ -124,6 +124,7 @@ but you can access article without login first
     }
   ]
 }
+```
 
 ```
 
@@ -162,6 +163,7 @@ but you can access article without login first
     }
   ]
 }
+```
 
 * **Create Articles**
 > Retrieves a new article.
@@ -197,6 +199,7 @@ but you can access article without login first
     }
   ]
 }
+```
 
 * **Get All Articles**
 > Retrieves a new articel after edit/put.
@@ -232,7 +235,7 @@ but you can access article without login first
     }
   ]
 }
-
+```
 -------------------------------------------
 **Category Endpoints**
 
@@ -257,7 +260,7 @@ but you can access article without login first
     }
   ]
 }
-
+```
 
 * **Create Category**
 > Retrieves a new article.
@@ -279,6 +282,7 @@ but you can access article without login first
     }
   ]
 }
+```
 
 * **Create Articles**
 > Retrieves a new article.
@@ -296,7 +300,7 @@ but you can access article without login first
   "statusCode": 200,
   "message": "sports success to delete",
 }
-
+```
 * **Update Category**
 > Retrieves a Category after edit/put.
 
@@ -317,6 +321,7 @@ but you can access article without login first
    }
   ]
 }
+```
 
 
 

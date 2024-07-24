@@ -3,7 +3,7 @@
       "username": "imam",
       "email": "imam@gmail.com",
       "password": "imam",
-      "role": "User",
+      "role": "Admin",
       "phoneNumber": "081234567",
       "address": "example street"
     },

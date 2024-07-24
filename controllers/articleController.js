@@ -53,13 +53,13 @@ class Controller {
   }
 
   static async createArticle(req, res, next) {
-    const { title, content, imgUrl, CategoryId, authorId } = req.body;
+    const { title, content, imgUrl, categoryId, authorId } = req.body;
     try {
       const newArticle = await Article.create({
         title,
         content,
         imgUrl,
-        CategoryId,
+        categoryId,
         authorId,
       });
 

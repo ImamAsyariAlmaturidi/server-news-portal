@@ -73,16 +73,12 @@ class Controller {
   }
 
   static async putArticleById(req, res, next) {
-    const id = req.params.id;
+    const id = req.params.id
     const { title, content, imgUrl, categoryId, authorId } = req.body;
 
     try {
       let status = 200;
-      const article = Article.findByPk(id);
-      if (!article) {
-        throw { name: "NotFound" };
-      }
-      await Article.update(
+       await Article.update(
         {
           title,
           content,
@@ -97,6 +93,10 @@ class Controller {
         }
       );
 
+      const article = await Article.findByPk(id);
+      if (!article) {
+        throw { name: "NotFound" };
+      }
       res.status(status).json({
         statusCode: status,
         data: article,

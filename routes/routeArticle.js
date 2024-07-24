@@ -24,8 +24,6 @@ router.patch("/:id", upload.single('image'), Controller.patchImageArticleById);
 
 router.put("/:id", authorizationStaff, Controller.putArticleById);
 
-
-
 router.delete("/:id", authorizationStaff, Controller.deleteArticleById);
 
 router.use(errorHandler)

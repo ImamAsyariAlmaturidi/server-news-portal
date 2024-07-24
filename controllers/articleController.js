@@ -1,18 +1,18 @@
 const { Article, User } = require("../models/index");
+const imageKit = require("../utils/imagekit");
 class Controller {
   static async getArticles(req, res, next) {
-    const { userId } = req.loginInfo
+    const { userId } = req.loginInfo;
     try {
-
       let status = 200;
       const articles = await Article.findAll({
         include: {
           model: User,
           attributes: ["username", "email", "phoneNumber", "address"],
         },
-        where:{
-          authorId: userId
-        }
+        where: {
+          authorId: userId,
+        },
       });
       res.status(status).json({
         statusCode: status,
@@ -25,13 +25,13 @@ class Controller {
 
   static async getArticleById(req, res, next) {
     const id = req.params.id;
-    const { userId } = req.loginInfo
+    const { userId } = req.loginInfo;
     try {
       let status = 200;
       const article = await Article.findOne({
         where: {
           id,
-          authorId: userId
+          authorId: userId,
         },
         include: {
           model: User,
@@ -122,7 +122,44 @@ class Controller {
         message: `${article.title} success to delete`,
       });
     } catch (err) {
-      console.log(err)
+      console.log(err);
+      next(err);
+    }
+  }
+
+  static async patchImageArticleById(req, res, next) {
+    const id = req.params.id;
+    try {
+      const imageInBase64 = req.file.buffer.toString("base64");
+
+      const idArticle = await Article.findByPk(id);
+
+      if (!idArticle) {
+        throw { name: "NotFound" };
+      }
+
+      const result = await imageKit.upload({
+        file: imageInBase64,
+
+        fileName: req.file.originalname,
+
+        tags: ["test"],
+      });
+
+      await Article.update(
+        {
+          url: result,
+        },
+        {
+          where: {
+            id: idArticle.id
+          },
+        }
+      );
+      res.status(200).json({
+        message: "Update Image Successfully",
+      });
+    } catch (err) {
       next(err);
     }
   }

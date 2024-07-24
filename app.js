@@ -11,6 +11,9 @@ app.use(express.json());
 
 app.use(allRoute)
 
-app.listen(port, () => {
-  console.log("server up and running in port 3000");
-});
+// app.listen(port, () => {
+//   console.log("server up and running in port 3000");
+// });
+
+
+module.exports = app

@@ -52,7 +52,7 @@ class Controller {
     }
   }
 
-  static async createArticle(req, res) {
+  static async createArticle(req, res, next) {
     const { title, content, imgUrl, CategoryId, authorId } = req.body;
     try {
       const newArticle = await Article.create({
@@ -72,7 +72,7 @@ class Controller {
     }
   }
 
-  static async putArticleById(req, res) {
+  static async putArticleById(req, res, next) {
     const id = req.params.id;
     const { title, content, imgUrl, categoryId, authorId } = req.body;
 
@@ -122,7 +122,6 @@ class Controller {
         message: `${article.title} success to delete`,
       });
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }

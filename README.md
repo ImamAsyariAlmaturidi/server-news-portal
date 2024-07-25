@@ -404,3 +404,117 @@ API Documentation |
 
 - **500 - Internal Server Error:**
   - message: "Internal server error"
+
+  &nbsp;
+
+# Public Article
+
+## 7. GET /public/articles?filter=1
+
+### Description:
+
+- Get articles with filter from database
+
+### Request:
+
+- **Query Parameters:**
+  - filter: integer (optional)
+
+### Responses:
+
+- **200 - OK:**
+  - data: Object
+
+- **404 - Not Found:**
+  - message: "There is no data / data empty"
+
+...
+
+## 8. GET /public/articles?page[number]=2&page[size]=2
+
+### Description:
+
+- Get paginated articles from database
+
+### Request:
+
+- **Query Parameters:**
+  - page[number]: integer (optional)
+  - page[size]: integer (optional)
+
+### Responses:
+
+- **200 - OK:**
+  - data: Object
+
+- **404 - Not Found:**
+  - message: "There is no data / data empty"
+
+...
+
+## 9. GET /public/articles?search=keyword
+
+### Description:
+
+- Search articles in the database
+
+### Request:
+
+- **Query Parameters:**
+  - search: string (optional)
+
+### Responses:
+
+- **200 - OK:**
+  - data: Object
+
+- **404 - Not Found:**
+  - message: "There is no data / data empty"
+
+...
+
+## 10. GET /public/articles?sort=field_name
+
+### Description:
+
+- Sort articles in the database
+
+### Request:
+
+- **Query Parameters:**
+  - sort: string (optional)
+
+### Responses:
+
+- **200 - OK:**
+  - data: Object
+
+- **404 - Not Found:**
+  - message: "There is no data / data empty"
+
+...
+
+## 11. GET /public/articles?filter=1&sort=field_name&page[number]=2&page[size]=2&search=keyword
+
+### Description:
+
+- Filter, sort, paginate, and search articles in the database
+
+### Request:
+
+- **Query Parameters:**
+  - filter: integer (optional)
+  - sort: string (optional)
+  - page[number]: integer (optional)
+  - page[size]: integer (optional)
+  - search: string (optional)
+
+### Responses:
+
+- **200 - OK:**
+  - data: Object
+
+- **404 - Not Found:**
+  - message: "There is no data / data empty"
+
+...

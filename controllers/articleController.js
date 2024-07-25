@@ -16,6 +16,7 @@ class Controller {
       });
       res.status(status).json({
         statusCode: status,
+        message: "OK",
         data: articles,
       });
     } catch (err) {
@@ -45,6 +46,7 @@ class Controller {
 
       res.status(status).json({
         statusCode: status,
+        message: "OK",
         data: article,
       });
     } catch (err) {
@@ -65,6 +67,7 @@ class Controller {
 
       res.status(201).json({
         statusCode: 201,
+        message: "Success Create New Article",
         data: newArticle,
       });
     } catch (err) {
@@ -99,6 +102,7 @@ class Controller {
       }
       res.status(status).json({
         statusCode: status,
+        message: "Success Put New Article",
         data: article,
       });
     } catch (err) {

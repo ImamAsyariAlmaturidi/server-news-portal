@@ -279,10 +279,51 @@ describe("POST /article", () => {
   describe("GET/article - article", () => {
     it("should be return a message and data", async () => {
     
-        const response = await request(app).get("/public/article")
-        expect(response.status).toBe(403)
+        const response = await request(app).get("/public/article/2")
+        expect(response.status).toBe(200)
         expect(response.body).toBeInstanceOf(Object)
-        expect(response.body).toHaveProperty("message", 'You dont have any access')
+        expect(response.body).toHaveProperty("data", expect.any(Object))
     });
   });
+
+  describe("GET/article - article", () => {
+    it("should be return a message and data", async () => {
+    
+        const response = await request(app).get("/public/article/1")
+        expect(response.status).toBe(404)
+        expect(response.body).toBeInstanceOf(Object)
+        expect(response.body).toHaveProperty("message", 'Data not found')
+    });
+  });
+
+  describe("GET/article - article", () => {
+    it("should be return a message and data", async () => {
+    
+        const response = await request(app).get("/public/article")
+        expect(response.status).toBe(200)
+        expect(response.body).toBeInstanceOf(Object)
+        expect(response.body).toHaveProperty("data", expect.any(Object))
+    });
+  });
+
+  describe("GET/article - article", () => {
+    it("should be return a message and data", async () => {
+    
+        const response = await request(app).get("/public/article/?filter=1")
+        expect(response.status).toBe(200)
+        expect(response.body).toBeInstanceOf(Object)
+        expect(response.body).toHaveProperty("data", expect.any(Object))
+    });
+  });
+
+  describe("GET/article - article", () => {
+    it("should be return a message and data", async () => {
+    
+        const response = await request(app).get("/public/article/?page[number]=2&page[size]=2")
+        expect(response.status).toBe(200)
+        expect(response.body).toBeInstanceOf(Object)
+        expect(response.body).toHaveProperty("data", expect.any(Object))
+    });
+  });
+
 });

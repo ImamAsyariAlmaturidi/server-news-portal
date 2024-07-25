@@ -1,330 +1,406 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=15442980&assignment_repo_type=AssignmentRepo)
 # P2-Challenge-1 (Server Side)
 
+
 > Tuliskan API Docs kamu di sini
 API Documentation |
-for mostly endpoint need login first
 -------------------------------------------
-**Login Endpoints**
-**URL:** `/user/login`
-**Response:**
-  - Status Code: 200 (OK)
-  - Body: TOKEN`
+# Product API Documentation
 
--------------------------------------------
-but you can access article without login first
-**Endpoint Available without Login First:**
-GET /public/articles
-GET /public/articles/:id
+## Endpoint :
 
--------------------------------------------
-**Public Endpoints**
+### List of available endpoints:
 
+- **User**
+  - POST /user/login
+  - POST /user/add-user
 
+- **Article**
+  - GET /articles
+  - POST /articles
+  - GET /articles/:id
+  - DELETE /articles/:id
+  - PUT /articles/:id
+  - PATCH /articles/:id
 
-**Article Endpoints**
-**URL:** `/public/article`
+- **Category**
+  - GET /categories
+  - POST /categories
+  - GET /categories/:id
+  - DELETE /categories/:id
+  - PUT /categories/:id
 
-**Response:**
-  - Status Code: 200 (OK)
-  - Body: An array of JSON objects representing articles. Each object includes properties like `id`, `title`, `content`, `imgUrl` `authorId`, `categoryId` (include table user): `user`
+&nbsp;
 
-**Example Response:*
+# User
 
-```json
-{
-  "statusCode": 200,
-  "message": "OK",
-  "data": [
-    {
-      "id": 1,
-      "title": "Mbappe Real Madrid",
-      "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-      "categoryId": 1,
-      "authorId": 1,
-      "createdAt": "2024-07-22T13:28:18.569Z",
-      "updatedAt": "2024-07-22T13:28:18.569Z",
-      "User": {
-        "username": "imam",
-        "email": "imam@gmail.com",
-        "phoneNumber": "081234567",
-        "address": "example street"
-      }
-    }
-  ]
-}
+## 1. POST /user/login
 
-```
+### Request:
 
+- **Body:**
+  - email: string
+  - password: string
 
-**Article By Id Endpoints**
-**URL:** `/public/article/:id`
+### Responses:
 
-**Response:**
-  - Status Code: 200 (OK)
-  - Body: An array of JSON objects representing articles. Each object includes properties like `id`, `title`, `content`, `imgUrl` `authorId`, `categoryId` (include table user): `user`
+- **201 - OK:**
+  - access_token: string
 
-**Example Response:*
+- **400 - Bad Request:**
+  - message: "Email or password is required"
 
-```json
-{
-  "statusCode": 200,
-  "message": "OK",
-  "data": [
-    {
-      "id": 1,
-      "title": "Mbappe Real Madrid",
-      "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-      "categoryId": 1,
-      "authorId": 1,
-      "createdAt": "2024-07-22T13:28:18.569Z",
-      "updatedAt": "2024-07-22T13:28:18.569Z",
-      "User": {
-        "username": "imam",
-        "email": "imam@gmail.com",
-        "phoneNumber": "081234567",
-        "address": "example street"
-      }
-    }
-  ]
-}
+- **401 - Unauthorized:**
+  - message: "Invalid email/password"
 
-```
--------------------------------------------
-* **Get All Articles**
-> Retrieves a list of all articles.
+&nbsp;
 
-**URL:** `/article`
-**Method:** GET
-**Response:**
-  - Status Code: 200 (OK)
-  - Body: An array of JSON objects representing articles. Each object includes properties like `id`, `title`, `content`, `imgUrl` `authorId`, `categoryId` (include table user): `user`
+## 2. POST /user/add-user
 
-**Example Response:*
+### Request:
 
-```json
-{
-  "statusCode": 200,
-  "message": "OK",
-  "data": [
-    {
-      "id": 1,
-      "title": "Mbappe Real Madrid",
-      "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-      "categoryId": 1,
-      "authorId": 1,
-      "createdAt": "2024-07-22T13:28:18.569Z",
-      "updatedAt": "2024-07-22T13:28:18.569Z",
-      "User": {
-        "username": "imam",
-        "email": "imam@gmail.com",
-        "phoneNumber": "081234567",
-        "address": "example street"
-      }
-    }
-  ]
-}
-```
+- **Body:**
+  - email: string
+  - password: string
+  - username: string
+  - phoneNumber: string
+  - address: string
 
-```
+### Responses:
 
-* **Get Articles By ID**
-> Retrieves a articles where id same.
+- **201 - Created:**
+  - message: "Success create new user"
+  - user:
+    - email: string
+    - password: string
+    - username: string
+    - phoneNumber: string
+    - address: string
 
+- **400 - Bad Request:**
+  - message: 
+    - "Email is required" 
+    - OR "Invalid email format"
+    - OR "Email must be unique"
+    - OR "Username is required"
+    - OR "Password is required"
+    - OR "phoneNumber is required"
+    - OR "Address is required"
 
-**URL:** `/article/:id`
-**Method:** GET
-**Response:**
-  - Status Code: 200 (OK)
-  - Body: An array of JSON objects representing articles by id. Each object includes properties like `id`, `title`, `content`, `imgUrl` `authorId`, `categoryId` (include table user): `user`
+&nbsp;
 
-**Example Response:*
+# Article
 
-```json
-{
-  "statusCode": 200,
-  "message": "OK",
-  "data": [
-    {
-      "id": 1,
-      "title": "Mbappe Real Madrid",
-      "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-      "categoryId": 1,
-      "authorId": 1,
-      "createdAt": "2024-07-22T13:28:18.569Z",
-      "updatedAt": "2024-07-22T13:28:18.569Z",
-      "User": {
-        "username": "imam",
-        "email": "imam@gmail.com",
-        "phoneNumber": "081234567",
-        "address": "example street"
-      }
-    }
-  ]
-}
-```
+## 1. GET /articles
 
-* **Create Articles**
-> Retrieves a new article.
+### Description:
 
+- Get all articles from database
 
-**URL:** `/article`
-**Method:** POST
-**Response:**
-  - Status Code: 201 (OK)
-  - Body: An array of JSON objects representing new articles after create.
-**Example Response:*
+### Request:
 
-```json
-{
-  "statusCode": 201,
-  "message": "OK",
-  "data": [
-    {
-      "id": 1,
-      "title": "Mbappe Real Madrid",
-      "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-      "categoryId": 1,
-      "authorId": 1,
-      "createdAt": "2024-07-22T13:28:18.569Z",
-      "updatedAt": "2024-07-22T13:28:18.569Z",
-      "User": {
-        "username": "imam",
-        "email": "imam@gmail.com",
-        "phoneNumber": "081234567",
-        "address": "example street"
-      }
-    }
-  ]
-}
-```
+- **Headers:**
+  - access_token: string
 
-* **Get All Articles**
-> Retrieves a new articel after edit/put.
+### Responses:
 
+- **200 - OK:**
+  - Array of articles with properties:
+    - title: string
+    - content: string
+    - imgUrl: string
+    - categoryId: number
+    - authorId: number
 
-**URL:** `/article/:id`
-**Method:** PUT
-**Response:**
-  - Status Code: 200 (OK)
-  - Body: An array of JSON objects representing articles after put/update.
-**Example Response:*
+- **404 - Not Found:**
+  - message: "There is no data / data empty"
 
-```json
-{
-  "statusCode": 200,
-  "message": "OK",
-  "data": [
-    {
-      "id": 1,
-      "title": "Mbappe Man City",
-      "content": "Mbappe Masuk Man City pada tanggal 20 july 2004",
-      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-      "categoryId": 1,
-      "authorId": 1,
-      "createdAt": "2024-07-22T13:28:18.569Z",
-      "updatedAt": "2024-07-22T13:28:18.569Z",
-      "User": {
-        "username": "imam",
-        "email": "imam@gmail.com",
-        "phoneNumber": "081234567",
-        "address": "example street"
-      }
-    }
-  ]
-}
-```
--------------------------------------------
-**Category Endpoints**
+&nbsp;
 
-* **Get All Category**
-> Retrieves a list of all category.
+## 2. GET /articles/:id
 
-**URL:** `/category`
-**Method:** GET
-**Response:**
-  - Status Code: 200 (OK)
-  - Body: An array of JSON objects representing articles. Each object includes properties like `id`, `name`, `createdAt`, `updatedAt`
+### Description:
 
-**Example Response:*
+- Get article by ID from database
 
-```json
-{
-  "statusCode": 200,
-  "message": "OK",
-  "data": [
-    {
-      "name" : "e-sports"
-    }
-  ]
-}
-```
+### Request:
 
-* **Create Category**
-> Retrieves a new article.
+- **Headers:**
+  - access_token: string
 
-**URL:** `/category`
-**Method:** POST
-**Response:**
-  - Status Code: 201 (OK)
-  - Body: An array of JSON objects representing new category after create.
-**Example Response:*
+- **Params:**
+  - id: integer (required)
 
-```json
-{
-  "statusCode": 201,
-  "message": "OK",
-  "data": [
-    {
-     "name": "sports"
-    }
-  ]
-}
-```
+### Responses:
 
-* **Create Articles**
-> Retrieves a new article.
+- **200 - OK:**
+  - Article object with properties:
+    - title: string
+    - content: string
+    - imgUrl: string
+    - categoryId: number
+    - authorId: number
 
+- **404 - Not Found:**
+  - message: "Article not found"
 
-**URL:** `/category/:id`
-**Method:** DELETE
-**Response:**
-  - Status Code: 200 (OK)
-  - message: "${category} success to delete".
-**Example Response:*
+&nbsp;
 
-```json
-{
-  "statusCode": 200,
-  "message": "sports success to delete",
-}
-```
-* **Update Category**
-> Retrieves a Category after edit/put.
+## 3. POST /articles
 
-**URL:** `/category/:id`
-**Method:** PUT
-**Response:**
-  - Status Code: 200 (OK)
-  - Body: An array of JSON objects representing articles after put/update.
-**Example Response:*
+### Description:
 
-```json
-{
-  "statusCode": 200,
-  "message": "OK",
-  "data": [
-   {
-    "name" : "e-sport mobile legends"
-   }
-  ]
-}
-```
+- Add article to database.
 
+### Request:
 
+- **Headers:**
+  - access_token: string
 
+- **Body:**
+  - title: string
+  - content: string
+  - imgUrl: string
+  - categoryId: number
+
+### Responses:
+
+- **200 - OK:**
+  - message: "Success Add Article"
+  - article:
+    - title: string
+    - content: string
+    - imgUrl: string
+    - categoryId: number
+
+- **400 - Bad Request:**
+  - message: "Invalid input"
+  - OR "Validation error message"
+
+&nbsp;
+
+## 4. PUT /articles/:id
+
+### Description:
+
+- Update article in the database.
+
+### Request:
+
+- **Headers:**
+  - access_token: string
+
+- **Params:**
+  - id: integer (required)
+
+- **Body:**
+  - title: string
+  - content: string
+  - imgUrl: string
+  - categoryId: number
+
+### Responses:
+
+- **200 - OK:**
+  - message: "Success Update Article"
+
+- **400 - Bad Request:**
+  - message: "Invalid input"
+  - OR "Validation error message"
+
+- **404 - Not Found:**
+  - message: "Article not found"
+
+&nbsp;
+
+## 5. DELETE /articles/:id
+
+### Description:
+
+- Delete article by ID
+
+### Request:
+
+- **Headers:**
+  - access_token: string
+
+- **Params:**
+  - id: integer (required)
+
+### Responses:
+
+- **200 - OK:**
+  - message: "Article success to delete"
+
+- **404 - Not Found:**
+  - message: "Article not found"
+
+&nbsp;
+
+## 6. PATCH /articles/:id
+
+### Description:
+
+- Update partial article data (e.g., image)
+
+### Request:
+
+- **Headers:**
+  - access_token: string
+
+- **Params:**
+  - id: integer (required)
+
+- **Body:**
+  - imgUrl: string
+
+### Responses:
+
+- **200 - OK:**
+  - message: "Article image has been updated"
+
+- **404 - Not Found:**
+  - message: "Article not found"
+
+&nbsp;
+
+# Category
+
+## 1. GET /categories
+
+### Description:
+
+- Get all categories from database
+
+### Request:
+
+- **Headers:**
+  - access_token: string
+
+### Responses:
+
+- **200 - OK:**
+  - Array of categories with properties:
+    - name: string
+
+- **400 - Not Found:**
+  - message: "There is no data / data empty"
+
+&nbsp;
+
+## 2. GET /categories/:id
+
+### Description:
+
+- Get category by ID from database
+
+### Request:
+
+- **Headers:**
+  - access_token: string
+
+- **Params:**
+  - id: integer (required)
+
+### Responses:
+
+- **200 - OK:**
+  - Category object with properties:
+    - name: string
+
+- **404 - Not Found:**
+  - message: "Category not found"
+
+&nbsp;
+
+## 3. POST /categories
+
+### Description:
+
+- Add category to database.
+
+### Request:
+
+- **Headers:**
+  - access_token: string
+
+- **Body:**
+  - name: string
+
+### Responses:
+
+- **200 - OK:**
+  - message: "Success Add Category"
+  - category:
+    - name: string
+
+- **400 - Bad Request:**
+  - message: "Invalid input"
+  - OR "Validation error message"
+
+&nbsp;
+
+## 4. PUT /categories/:id
+
+### Description:
+
+- Update category in the database.
+
+### Request:
+
+- **Headers:**
+  - access_token: string
+
+- **Params:**
+  - id: integer (required)
+
+- **Body:**
+  - name: string
+
+### Responses:
+
+- **200 - OK:**
+  - message: "Success Update Category"
+
+- **400 - Bad Request:**
+  - message: "Invalid input"
+  - OR "Validation error message"
+
+- **404 - Not Found:**
+  - message: "Category not found"
+
+&nbsp;
+
+## 5. DELETE /categories/:id
+
+### Description:
+
+- Delete category by ID
+
+### Request:
+
+- **Headers:**
+  - access_token: string
+
+- **Params:**
+  - id: integer (required)
+
+### Responses:
+
+- **200 - OK:**
+  - message: "Category success to delete"
+
+- **404 - Not Found:**
+  - message: "Category not found"
+
+&nbsp;
+
+# Global Error
+
+### Responses:
+
+- **401 - Unauthorized:**
+  - message: "Invalid token"
+
+- **500 - Internal Server Error:**
+  - message: "Internal server error"

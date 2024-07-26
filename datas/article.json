@@ -1,212 +1,191 @@
 [
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Mbappe Real Madrid",
+      "content": "Mbappe masuk Real Madrid pada tanggal 16 July 2024",
+      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
+      "categoryId": 1,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Ronaldo Real Madrid",
+      "content": "Ronaldo makan bakso pada July 24",
+      "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
+      "categoryId": 1,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Teknologi Terbaru AI",
+      "content": "Perkembangan terbaru dalam teknologi AI.",
+      "imgUrl": "https://example.com/image1.jpg",
+      "categoryId": 2,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Tips Kesehatan di Musim Dingin",
+      "content": "Bagaimana menjaga kesehatan di musim dingin.",
+      "imgUrl": "https://example.com/image2.jpg",
+      "categoryId": 3,
+      "authorId": 1
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Pendidikan di Era Digital",
+      "content": "Bagaimana teknologi mempengaruhi pendidikan.",
+      "imgUrl": "https://example.com/image3.jpg",
+      "categoryId": 4,
+      "authorId": 2
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Film Terbaru di 2024",
+      "content": "Rekomendasi film yang akan rilis di tahun 2024.",
+      "imgUrl": "https://example.com/image4.jpg",
+      "categoryId": 5,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Destinasi Wisata Populer",
+      "content": "Tempat wisata yang wajib dikunjungi.",
+      "imgUrl": "https://example.com/image5.jpg",
+      "categoryId": 6,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Resep Makanan Sehat",
+      "content": "Cara membuat makanan sehat dan lezat.",
+      "imgUrl": "https://example.com/image6.jpg",
+      "categoryId": 7,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Tren Fashion 2024",
+      "content": "Mode dan gaya terbaru di tahun 2024.",
+      "imgUrl": "https://example.com/image7.jpg",
+      "categoryId": 8,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Penemuan Baru di Dunia Sains",
+      "content": "Penemuan terbaru yang mengubah dunia.",
+      "imgUrl": "https://example.com/image8.jpg",
+      "categoryId": 9,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Strategi Bisnis Sukses",
+      "content": "Tips dan trik untuk sukses dalam bisnis.",
+      "imgUrl": "https://example.com/image9.jpg",
+      "categoryId": 10,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Inovasi Teknologi Blockchain",
+      "content": "Bagaimana blockchain mengubah industri.",
+      "imgUrl": "https://example.com/image10.jpg",
+      "categoryId": 2,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Olahraga untuk Kebugaran",
+      "content": "Jenis olahraga yang membantu menjaga kebugaran.",
+      "imgUrl": "https://example.com/image11.jpg",
+      "categoryId": 1,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Manfaat Yoga untuk Kesehatan",
+      "content": "Bagaimana yoga bisa meningkatkan kesehatan.",
+      "imgUrl": "https://example.com/image12.jpg",
+      "categoryId": 3,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Metode Pembelajaran Baru",
+      "content": "Inovasi dalam metode pembelajaran.",
+      "imgUrl": "https://example.com/image13.jpg",
+      "categoryId": 4,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Acara TV Terbaik 2024",
+      "content": "Rekomendasi acara TV untuk tahun 2024.",
+      "imgUrl": "https://example.com/image14.jpg",
+      "categoryId": 5,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Tips Traveling Hemat",
+      "content": "Bagaimana traveling dengan budget terbatas.",
+      "imgUrl": "https://example.com/image15.jpg",
+      "categoryId": 6,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Makanan Vegan Terbaik",
+      "content": "Resep dan tips makanan vegan.",
+      "imgUrl": "https://example.com/image16.jpg",
+      "categoryId": 7,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Fashion Musim Panas",
+      "content": "Tren fashion untuk musim panas.",
+      "imgUrl": "https://example.com/image17.jpg",
+      "categoryId": 8,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Eksperimen Sains Menarik",
+      "content": "Eksperimen sains yang bisa dilakukan di rumah.",
+      "imgUrl": "https://example.com/image18.jpg",
+      "categoryId": 9,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Panduan Investasi untuk Pemula",
+      "content": "Tips investasi bagi yang baru memulai.",
+      "imgUrl": "https://example.com/image19.jpg",
+      "categoryId": 10,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Teknologi VR dan AR",
+      "content": "Bagaimana VR dan AR mengubah cara kita berinteraksi.",
+      "imgUrl": "https://example.com/image20.jpg",
+      "categoryId": 2,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Olahraga Ekstrem Populer",
+      "content": "Jenis olahraga ekstrem yang sedang tren.",
+      "imgUrl": "https://example.com/image21.jpg",
+      "categoryId": 1,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Nutrisi untuk Kesehatan Mental",
+      "content": "Makanan yang membantu kesehatan mental.",
+      "imgUrl": "https://example.com/image22.jpg",
+      "categoryId": 3,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
+      "title": "Edukasi Anak Usia Dini",
+      "content": "Cara mendidik anak sejak usia dini.",
+      "imgUrl": "https://example.com/image23.jpg",
+      "categoryId": 4,
+      "authorId": 1
     },
     {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Film Dokumenter Terbaik",
+      "content": "Rekomendasi film dokumenter yang harus ditonton.",
+      "imgUrl": "https://example.com/image24.jpg",
+      "categoryId": 5,
+      "authorId": 2
     },
     {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
-    },
-    {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
-    },
-    {
-        "title": "Mbappe Real Madrid",
-        "content": "Mbappe masuk real madrid pada tanggal 16 july 2024",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 1
-    },
-    {
-        "title": "Ronaldo Real Madrid",
-        "content": "Ronaldo makan bakso pada july 24",
-        "imgUrl": "https://akcdn.detik.net.id/community/media/visual/2024/07/16/momen-mbappe-resmi-diperkenalkan-real-madrid-sebagai-pemain-baru-6_169.jpeg?w=600&q=90",
-        "categoryId": 1,
-        "authorId": 2
+      "title": "Destinasi Wisata Kuliner",
+      "content": "Tempat-tempat wisata yang terkenal dengan kulinernya.",
+      "imgUrl": "https://example.com/image25.jpg",
+      "categoryId": 6,
+      "authorId": 1
     }
-]
+  ]

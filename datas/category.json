@@ -1,5 +1,32 @@
 [
     {
-        "name": "sport"
+      "name": "sport"
+    },
+    {
+      "name": "technology"
+    },
+    {
+      "name": "health"
+    },
+    {
+      "name": "education"
+    },
+    {
+      "name": "entertainment"
+    },
+    {
+      "name": "travel"
+    },
+    {
+      "name": "food"
+    },
+    {
+      "name": "fashion"
+    },
+    {
+      "name": "science"
+    },
+    {
+      "name": "business"
     }
-]
+  ]

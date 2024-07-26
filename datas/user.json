@@ -1,18 +1,18 @@
 [
-    {
-      "username": "imam",
-      "email": "imam@gmail.com",
-      "password": "imam",
-      "role": "Admin",
-      "phoneNumber": "081234567",
-      "address": "example street"
-    },
-    {
-      "username": "athif",
-      "email": "athif@gmail.com",
-      "password": "athif",
-      "role": "Staff",
-      "phoneNumber": "087654321",
-      "address": "example street 2"
-    }
-  ]
+  {
+    "username": "imam",
+    "email": "imam@gmail.com",
+    "password": "imam",
+    "role": "Admin",
+    "phoneNumber": "081234567",
+    "address": "example street"
+  },
+  {
+    "username": "athif",
+    "email": "athif@gmail.com",
+    "password": "athif",
+    "role": "Staff",
+    "phoneNumber": "087654321",
+    "address": "example street 2"
+  }
+]

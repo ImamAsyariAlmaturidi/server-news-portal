@@ -102,9 +102,9 @@ describe("POST /article", () => {
             authorId: 1
         }
         const response = await request(app).post("/article").set('Authorization', `Bearer adwdawdadawdawd`).send(body)
-        expect(response.status).toBe(401)
+        expect(response.status).toBe(403)
         expect(response.body).toBeInstanceOf(Object)
-        expect(response.body).toHaveProperty("message", `Please login first`)
+        expect(response.body).toHaveProperty("message", `You dont have any access`)
     });
   });
 
@@ -170,9 +170,9 @@ describe("POST /article", () => {
         }
 
         const response = await request(app).put("/article/1").set('Authorization', `Bearer adwdjahwduw`).send(body)
-        expect(response.status).toBe(401)
+        expect(response.status).toBe(403)
         // expect(response.body).toBeInstanceOf(Object)
-        expect(response.body).toHaveProperty("message", 'Please login first')
+        expect(response.body).toHaveProperty("message", 'You dont have any access')
     });
   });
 
@@ -250,9 +250,9 @@ describe("POST /article", () => {
     it("should be return a message error", async () => {
     
         const response = await request(app).delete("/article/1").set('Authorization', `Bearer ahshwb`)
-        expect(response.status).toBe(401)
+        expect(response.status).toBe(403)
         expect(response.body).toBeInstanceOf(Object)
-        expect(response.body).toHaveProperty("message", expect.any(String))
+        expect(response.body).toHaveProperty("message", 'You dont have any access')
     });
   });
 

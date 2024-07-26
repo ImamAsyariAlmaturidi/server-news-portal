@@ -27,9 +27,14 @@ const errorHandler = (err, req, res, next) => {
         status = 401
     }
 
-    if (err.name == 'Unauthorized' || err.name == 'JsonWebTokenError') {
+    if (err.name == 'Unauthorized') {
         message = 'Please login first'
         status = 401
+    }
+
+    if(err.name == 'JsonWebTokenError'){
+        message = "You dont have any access"
+        status = 403
     }
 
     if (err.name == 'Forbidden') {
@@ -41,6 +46,8 @@ const errorHandler = (err, req, res, next) => {
         status = 404
         message = `Data not found`
     }
+
+    
 
 
     res.status(status).json({

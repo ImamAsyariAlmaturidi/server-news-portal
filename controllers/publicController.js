@@ -50,10 +50,7 @@ class Controller {
         data: rows
       };
 
-      res.status(200).json({
-        statusCode: 200,
-        data: result,
-      });
+      res.status(200).json({result});
     } catch (err) {
       console.log(err)
       next(err);

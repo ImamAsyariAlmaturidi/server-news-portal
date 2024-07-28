@@ -1,22 +1,20 @@
-const dotenv = require('dotenv')
-dotenv.config()
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const app = express();
-const cors = require('cors')
+const cors = require("cors");
+const allRoute = require("./routes/routes");
 
-app.use(cors())
+app.use(cors());
 
-const allRoute = require('./routes/routes')
 
-app.use(express.urlencoded({ extended: false })); 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Welcome to News Portal");
+});
 
-app.get('/', (req, res) => {
-    res.send('Welcome to News Portal')
-})
+app.use(allRoute);
 
-app.use(allRoute)
-
-
-module.exports = app
+module.exports = app;

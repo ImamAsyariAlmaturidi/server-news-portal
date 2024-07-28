@@ -40,17 +40,22 @@ class Controller {
         }
       }
 
-      const article = await Article.findAll(paramsQuerySql);
+      const { count, rows } = await Article.findAndCountAll(paramsQuerySql);
 
-      if (article.length === 0) {
-        throw { name: "NotFound" };
-      }
+      let result = {
+        total: count,
+        size: limit,
+        totalPage: Math.ceil(count/limit),
+        currentPage: page,
+        data: rows
+      };
 
       res.status(200).json({
         statusCode: 200,
-        data: article,
+        data: result,
       });
     } catch (err) {
+      console.log(err)
       next(err);
     }
   }

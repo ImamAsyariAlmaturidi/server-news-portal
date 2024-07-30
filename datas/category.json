@@ -1,32 +1,8 @@
 [
     {
-      "name": "sport"
+      "name": "anime"
     },
     {
-      "name": "technology"
-    },
-    {
-      "name": "health"
-    },
-    {
-      "name": "education"
-    },
-    {
-      "name": "entertainment"
-    },
-    {
-      "name": "travel"
-    },
-    {
-      "name": "food"
-    },
-    {
-      "name": "fashion"
-    },
-    {
-      "name": "science"
-    },
-    {
-      "name": "business"
+      "name": "manga"
     }
   ]

@@ -55,7 +55,8 @@ class Controller {
   }
 
   static async createArticle(req, res, next) {
-    const { title, content, imgUrl, categoryId, authorId } = req.body;
+    const authorId = req.loginInfo.userId
+    const { title, content, imgUrl, categoryId} = req.body;
     try {
       const newArticle = await Article.create({
         title,
@@ -77,7 +78,7 @@ class Controller {
 
   static async putArticleById(req, res, next) {
     const id = req.params.id
-    const { title, content, imgUrl, categoryId, authorId } = req.body;
+    const { title, content, imgUrl, categoryId } = req.body;
 
     try {
       let status = 200;
@@ -87,7 +88,6 @@ class Controller {
           content,
           imgUrl,
           categoryId,
-          authorId,
         },
         {
           where: {

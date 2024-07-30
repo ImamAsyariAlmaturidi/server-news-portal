@@ -20,7 +20,7 @@ router.get("/:id", Controller.getArticleById);
 
 router.post("/", Controller.createArticle);
 
-router.patch("/:id", upload.single('image'), Controller.patchImageArticleById);
+router.patch("/:id", authorizationStaff, upload.single('image'), Controller.patchImageArticleById);
 
 router.put("/:id", authorizationStaff, Controller.putArticleById);
 

@@ -10,9 +10,17 @@ class Controller {
         address,
         phoneNumber,
       });
+
+      const user = await User.findOne({
+        where: {
+          email: newUser.email
+        },
+        attributes: ['id', 'username', 'email', "phoneNumber", 'address']
+      })
+
       res.status(201).json({
         statusCode: 201,
-        data: newUser,
+        data: user,
       });
     } catch (err) {
       next(err);

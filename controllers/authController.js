@@ -35,7 +35,7 @@ class Controller {
       const access_token = signToken(payload);
       res.status(200).json({ access_token });
     } catch (err) {
-      // console.log(err)
+      console.log(err)
       next(err)
     }
   }

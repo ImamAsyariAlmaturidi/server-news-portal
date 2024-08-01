@@ -1,10 +1,12 @@
-const { Article, Category } = require("../models/index");
+const { Article, Category, User } = require("../models/index");
 const { Op } = require("sequelize");
 class Controller {
   static async getPublicData(req, res, next) {
     const { filter, sort, page, search } = req.query;
     try {
-      const paramsQuerySql = {};
+      const paramsQuerySql = {
+        include: [{ model: User, attributes: { exclude: ['password', 'phoneNumber', 'role'] } }, Category],
+      };
 
       if (filter) {
         paramsQuerySql.where = {
@@ -45,14 +47,14 @@ class Controller {
       let result = {
         total: count,
         size: limit,
-        totalPage: Math.ceil(count/limit),
+        totalPage: Math.ceil(count / limit),
         currentPage: page,
-        data: rows
+        data: rows,
       };
 
       res.status(200).json(result);
     } catch (err) {
-      console.log(err)
+      console.log(err);
       next(err);
     }
   }

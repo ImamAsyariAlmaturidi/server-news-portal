@@ -1,4 +1,4 @@
-const { Article, User } = require("../models/index");
+const { Article, User, Category } = require("../models/index");
 const imageKit = require("../utils/imagekit");
 class Controller {
   static async getArticles(req, res, next) {
@@ -6,13 +6,18 @@ class Controller {
     try {
       let status = 200;
       const articles = await Article.findAll({
-        include: {
-          model: User,
-          attributes: ["username", "email", "phoneNumber", "address"],
-        },
         where: {
           authorId: userId,
         },
+        include: [
+          {
+            model: User,
+            attributes: ["username", "email", "phoneNumber", "address"],
+          },
+          {
+            model: Category,
+          },
+        ],
       });
       res.status(status).json({
         statusCode: status,
@@ -20,6 +25,7 @@ class Controller {
         data: articles,
       });
     } catch (err) {
+      console.log(err);
       next(err);
     }
   }
@@ -34,10 +40,15 @@ class Controller {
           id,
           authorId: userId,
         },
-        include: {
-          model: User,
-          attributes: ["username", "email", "phoneNumber", "address"],
-        },
+        include: [
+          {
+            model: User,
+            attributes: ["username", "email", "phoneNumber", "address"],
+          },
+          {
+            model: Category
+          },
+        ],
       });
 
       if (!article) {
@@ -55,8 +66,8 @@ class Controller {
   }
 
   static async createArticle(req, res, next) {
-    const authorId = req.loginInfo.userId
-    const { title, content, imgUrl, categoryId} = req.body;
+    const authorId = req.loginInfo.userId;
+    const { title, content, imgUrl, categoryId } = req.body;
     try {
       const newArticle = await Article.create({
         title,
@@ -77,12 +88,12 @@ class Controller {
   }
 
   static async putArticleById(req, res, next) {
-    const id = req.params.id
+    const id = req.params.id;
     const { title, content, imgUrl, categoryId } = req.body;
 
     try {
       let status = 200;
-       await Article.update(
+      await Article.update(
         {
           title,
           content,
@@ -149,13 +160,15 @@ class Controller {
         tags: ["test"],
       });
 
+      console.log(result);
+
       await Article.update(
         {
-          url: result,
+          imgUrl: result.url,
         },
         {
           where: {
-            id: idArticle.id
+            id: idArticle.id,
           },
         }
       );
@@ -163,6 +176,7 @@ class Controller {
         message: "Update Image Successfully",
       });
     } catch (err) {
+      console.log(err);
       next(err);
     }
   }
